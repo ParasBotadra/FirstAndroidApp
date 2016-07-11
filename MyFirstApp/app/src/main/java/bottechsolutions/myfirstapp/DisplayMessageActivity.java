@@ -26,4 +26,12 @@ public class DisplayMessageActivity extends AppCompatActivity {
         RelativeLayout layout = (RelativeLayout) findViewById(R.id.content);
         layout.addView(textView);
     }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();  // Always call the superclass
+
+        // Stop method tracing that the activity started during onCreate()
+        android.os.Debug.stopMethodTracing();
+    }
 }
